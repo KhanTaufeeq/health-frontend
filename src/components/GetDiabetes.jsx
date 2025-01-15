@@ -7,7 +7,7 @@ function GetDiabetes() {
   const [listDiabetes, setListDiabetes] = useState([]);
 
   useEffect(() => {
-    axios.get('http://127.0.0.1:8000/diabetes/')
+    axios.get('https://health-backend-qcof.onrender.com/diabetes/')
     .then((response) => {
       console.log(response.data)
       setListDiabetes(response.data)

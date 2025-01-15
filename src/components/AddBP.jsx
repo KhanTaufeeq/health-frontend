@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState, useEffect } from 'react';
+import { useState} from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router';
 
@@ -7,29 +7,29 @@ function AddBP() {
   const [systolic, setSystolic] = useState(0);
   const [diastolic, setDiastolic] = useState(0);
   const [timing, setTiming] = useState('');
-  const [csrfToken, setCsrfToken] = useState('');
+  // const [csrfToken, setCsrfToken] = useState('');
   const navigate = useNavigate();
 
 
-  const getCSRFToken = () => {
-    axios.get('http://127.0.0.1:8000/bp/csrf/', {
-      withCredentials: true,
-    })
-    .then((response) => {
-      console.log(response.data.csrfToken);
-      setCsrfToken(response.data.csrfToken);
-    })
-    .catch((error) => {
-      console.log(error)
-    })
-  }
+  // const getCSRFToken = () => {
+  //   axios.get('http://127.0.0.1:8000/bp/csrf/', {
+  //     withCredentials: true,
+  //   })
+  //   .then((response) => {
+  //     console.log(response.data.csrfToken);
+  //     setCsrfToken(response.data.csrfToken);
+  //   })
+  //   .catch((error) => {
+  //     console.log(error)
+  //   })
+  // }
 
-  useEffect(() => {
-    getCSRFToken();
-  }, [])
+  // useEffect(() => {
+  //   getCSRFToken();
+  // }, [])
 
   const addBPData = () => {
-    axios.post('http://127.0.0.1:8000/bp/add/', {
+    axios.post('https://health-backend-qcof.onrender.com/bp/add/', {
       'systolic' : systolic,
       'diastolic' : diastolic,
       'timing' : timing
@@ -37,7 +37,6 @@ function AddBP() {
     {
       headers : {
         'Content-Type': 'application/json',
-        'X-CSRFToken' : csrfToken,
       },
       withCredentials: true,
     })
