@@ -29,7 +29,7 @@ function AddBP() {
   // }, [])
 
   const addBPData = () => {
-    axios.post('https://health-backend-qcof.onrender.com/bp/add/', {
+    axios.post('http://127.0.0.1:8000/bp/add/', {
       'systolic' : systolic,
       'diastolic' : diastolic,
       'timing' : timing

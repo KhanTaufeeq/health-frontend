@@ -76,6 +76,29 @@
 .diastolic-bp-div{
   margin: 30px 0;
 }
+.diabetes-list{
+  background-color: white;
+  color: black;
+  border-radius: 8px;
+  position: relative;
+}
+#menu{
+  position: absolute;
+  top: 2px;
+  right: 10px;
+  width: 10%;
+}
+.edit-icon-div{
+  position: absolute;
+  right: 5px;
+  top: 22px;
+  display: flex;
+  flex-direction: column;
+  width: 12%;
+}
+#edit, #delete{
+  width: 100%;
+}
 .bp-div select{
   border: none;
   padding: 0.5rem;

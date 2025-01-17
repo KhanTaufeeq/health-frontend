@@ -26,7 +26,7 @@ function AddDiabetes() {
   // }, [])
 
   const addDiabetesData = () => {
-    axios.post('https://health-backend-qcof.onrender.com/diabetes/add/', {
+    axios.post('http://127.0.0.1:8000/diabetes/add/', {
       'fasting_sugar': fasting,
       'random_sugar' : random
     },

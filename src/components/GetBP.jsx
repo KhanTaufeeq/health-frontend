@@ -7,7 +7,7 @@ function GetBP() {
   const [listBP, setListBP] = useState([]);
 
   useEffect(() => {
-    axios.get('https://health-backend-qcof.onrender.com/bp/')
+    axios.get('http://127.0.0.1:8000/bp/')
         .then((response) => {
           console.log(response.data);
           setListBP(response.data)
