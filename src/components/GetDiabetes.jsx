@@ -8,7 +8,7 @@ import { useNavigate } from "react-router";
 
 function GetDiabetes() {
   const [listDiabetes, setListDiabetes] = useState([]);
-  const [showOptions, setShowOptions] = useState(false);
+  const [activeMenu, setActiveMenu] = useState(null);
 
   const navigate = useNavigate();
 
@@ -37,14 +37,7 @@ function GetDiabetes() {
   };
 
   const toggleOptions = (diabetes_id) => {
-    for (let i = 0; i < listDiabetes.length; i++){
-      if (listDiabetes[i].id == diabetes_id) {
-        setShowOptions(!showOptions);
-      }
-      else {
-        continue
-      }
-    }
+    setActiveMenu((prev_id) => (prev_id === diabetes_id ? null : diabetes_id));
   };
 
   const handleEdit = (diabetes) => {
@@ -53,7 +46,6 @@ function GetDiabetes() {
 
   return (
     <>
-      
       <div className="show-diabetes-div">
         <h1>Glucose Level</h1>
         {listDiabetes.map((diabetes) => {
@@ -61,7 +53,7 @@ function GetDiabetes() {
             <>
               <div className="diabetes-list" key={diabetes.id}>
                 <img src={menu} alt="menu" id="menu" onClick={() => toggleOptions(diabetes.id)} />
-                {showOptions && (
+                {activeMenu === diabetes.id && (
                   <div className="edit-icon-div">
                     <img
                       src={edit}

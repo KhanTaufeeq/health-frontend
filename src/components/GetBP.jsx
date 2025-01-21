@@ -8,7 +8,7 @@ import { useNavigate} from "react-router";
 
 function GetBP() {
   const [listBP, setListBP] = useState([]);
-  const [showOptions, setShowOptions] = useState(false);
+  const [activeMenu, setActiveMenu] = useState(null);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -23,14 +23,15 @@ function GetBP() {
       });
   }, []);
 
-  const toggleOptions = () => {
-    setShowOptions(!showOptions);
+  const toggleOptions = (bpId) => {
+    setActiveMenu((prevId) => (prevId === bpId ? null : bpId));
   };
 
   const deleteBP = (id) => {
     axios.delete(`http://127.0.0.1:8000/bp/delete/${id}`)
       .then((res) => {
         console.log(res.data);
+        setListBP(res.data);
       })
       .catch(error => {
         console.log(error);
@@ -49,8 +50,8 @@ function GetBP() {
           return (
             <>
               <div className="bp-list" key={bp.id}>
-                <img src={menu} alt="menu" id="menu" onClick={toggleOptions} />
-                {showOptions && (
+                <img src={menu} alt="menu" id="menu" onClick={() => toggleOptions(bp.id)} />
+                {activeMenu === bp.id && (
                   <div className="edit-icon-div">
                     <img
                       src={edit}
