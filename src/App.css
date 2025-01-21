@@ -76,25 +76,33 @@
 .diastolic-bp-div{
   margin: 30px 0;
 }
+.bp-list{
+    background-color: white;
+    color: black;
+    border-radius: 8px;
+    position: relative;
+    padding: 0.5rem;
+}
 .diabetes-list{
   background-color: white;
   color: black;
   border-radius: 8px;
   position: relative;
+  padding: 0.5rem;
 }
 #menu{
   position: absolute;
   top: 2px;
   right: 10px;
-  width: 10%;
+  width: 8%;
 }
 .edit-icon-div{
   position: absolute;
-  right: 5px;
+  right: 9px;
   top: 22px;
   display: flex;
   flex-direction: column;
-  width: 12%;
+  width: 8%;
 }
 #edit, #delete{
   width: 100%;
@@ -109,4 +117,35 @@
 }
 .show-diabetes-div h1{
   font-size: clamp(30px, 4vw, 60px);
+}
+/* update diabetes  */
+.update-div{
+  text-align: left;
+}
+.update-div input, .update-bp-input-div input{
+  border: none;
+  background-color: #1a1a1a;
+  border-radius: 5px;
+  padding:0.5rem;
+}
+.update-random-div{
+  margin:15px 0;
+}
+.update-cancel-div{
+  display: flex;
+  justify-content: space-between;
+}
+
+/* update bp  */
+
+.update-bp-input-div{
+  text-align: left;
+}
+.update-bp-input-div select{
+    border: none;
+    padding: 0.5rem;
+    background-color: #1a1a1a;
+}
+.update-bp-diastolic-div, .update-bp-systolic-div{
+  margin: 15px 0;
 }
